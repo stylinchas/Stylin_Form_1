@@ -1,0 +1,158 @@
+<!--
+    -----------
+    STYLIN' FORM 1
+    Author: Stylin' Form 1 written by Charles Wyke-Smith - www.stylinwithcss.com
+
+    "Stylin Form 1" © 2013 Charles Wyke-Smith, used under a 
+    Creative Commons Attribution-ShareAlike license: http://creativecommons.org/licenses/by-sa/3.0/
+    You are free to to share, copy, distribute and transmit this work
+    The Author attribution and this copyright info must not be removed from the file
+	------------
+-->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Stylin' Form by Charles Wyke-Smith</title>
+<link type="text/css" href="css/stylin_form1_base_20130106.css" rel="stylesheet" />
+
+<style>
+/* these styles are just for this demo *
+/* remove from your page */
+	a#toggleLeftLabels, a#hiliteErrors {
+			color:#555;
+			font-size:.8em;
+			margin-left:.5em;
+	}
+</style>
+
+<!-- this script needed for to demo script for switching layout and error hilites -->
+<!-- remove from your page -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$("#toggleLeftLabels").click(function() {
+  			$('form.stylin_form1').toggleClass('labels_left')
+			return false;
+		});
+	});
+	$(document).ready(function() {
+		$("#hiliteErrors").click(function() {
+  			$('form.stylin_form1 p').toggleClass('error')
+			return false;
+		});
+	});
+</script>
+
+</head>
+
+<body>
+
+<!-- temp markup for demo - remove from your page --->
+<a href="#" id="toggleLeftLabels">Demo of Toggle Left Labels</a>&nbsp;<a href="#" id="hiliteErrors">Demo of Error Messages</a>
+
+
+<!--STYLIN' FORM 1 MARKUP -->
+<!--FORM WIITH LABELS ABOVE OR TO LEFT OF CONTROLS-->
+
+<form class="stylin_form1" action="#" method="post"> <!-- the required form tag -->
+	<h2>A Stylin' Form</h2>
+    <p><span>*</span> indicates required field</p>
+    
+    
+    <!-- RELATED LABEL?INPUT SETS ARE WRAPPED IN A FIELDSET-->
+    <fieldset> <!-- the container for a group of controls -->
+    	<legend><span>Part 1 - Basic Controls</span></legend> <!-- the text label for a fieldset -->
+        
+       <!-- A SINGLE LINE TEXT FIELD -->	 
+        <div> <!-- control, label and direction wrapper for styling -->
+            <label for="user_name">User Name<span>*</span></label> <!-- the for attribute ties the label to its control - same as contol's ID -->
+            <input type="text" id="user_name" name="user_name" />  <!-- the text attribute makes this input display as a text field -->
+            <p>Please select a user name</p>
+        </div>
+        <!-- END SINGLE LINE TEXT FIELD -->
+        
+        <!-- A PASSWORD FIELD -->
+        <div>	
+            <label for="password">Password<span>*</span></label>
+            <input type="password" id="password" name="password" maxlength="20" /> <!-- password input text displays as bullets -->
+            <p>Password must be 8 or more characters</p>
+        </div>
+        <!-- END PASSWORD FIELD -->
+        
+        <!-- A MULTI-LINE TEXT FIELD -->
+        <div>	
+            <label for="description">Description</label>
+            <textarea id="description" name="description" placeholder="Enter the description here"></textarea>
+        </div>
+        <!-- END MULTI-LINE TEXT FIELD -->
+        
+        <!-- A HTML5 DATE FIELD -->
+        <div>	
+            <label for="description">Date</label>
+            <input type="date" id="special_date" name="event_date" min="2012-01-14" />
+        </div>
+        <!-- END DATE FIELD -->
+    
+    </fieldset>
+    
+    <fieldset>
+    	<legend ><span>Part 2 - Multi-Choice Controls</span></legend>
+    
+        <!-- CHECKBOXES -->
+        <div>
+            <h4>Pick Any</h4>
+            <div>
+                <input type="checkbox" id="check1" name="checkset" value = "1" tabindex="4" />
+                <label for="check1">Choice 1 - here is some longer text that wraps</label>
+                
+                <input type="checkbox" checked="checked" id="check2" name="checkset" value = "2" />
+                <label for="check2">Choice 2 is pre-checked</label>
+               
+                <input type="checkbox"  id="check3" name="checkset" value = "3" />
+                <label for="check3">Choice 3 - add as many as you need!</label>
+            </div><!--end buttongroup-->
+          <p>You must choose one or more</p>
+        </div>
+        <!-- END CHECKBOXES -->
+        
+        <!-- RADIO BUTTONS -->
+        <div>
+        <h4>Pick One</h4>
+            <div>
+                <input checked="checked" id="radio1" name="radioset" type="radio" value = "Choice_1" />
+                <label for="radio1">Choice 1 is pre-selected and shows the text wraps nicely if it goes to multiple lines.</label>
+                <input id="radio2" name="radioset" type="radio" value="Choice_2" />
+                <label for="radio2">Choice 2</label>
+                
+                <input id="radio3" name="radioset" type="radio" value="Choice_3" />
+                <label for="radio3">Choice 3</label>
+                
+            </div><!--end buttongroup-->
+        </div>
+        <!-- END RADIO BUTTONS -->
+        
+        <!-- SELECT (drop-down menu) -->
+        <div>
+            <label>Need a drink?</label>
+            <select id="drink_choice" name="drink_choice">
+                <option value="0">Choose your poison : )</option>
+                <option value="tea">Tea</option>
+                <option value="coffee">Coffee</option>
+                <option value="water">Water</option>
+                <option value="beer">Beer</option>
+            </select>
+        </div>
+        <!-- END SELECT-->
+    </fieldset>
+    
+    <!-- SUBMIT BUTTON -->
+    <div> <!-- input must be wrapped in a block level element to validate -->
+    	<input type="submit" value="Submit" />
+    </div>
+    
+</form>
+
+</body>
+</html>
